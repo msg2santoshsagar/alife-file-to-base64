@@ -129,6 +129,41 @@
           }
         }
       }
+    },
+    "file-to-base64": {
+      "root": "projects/file-to-base64",
+      "sourceRoot": "projects/file-to-base64/src",
+      "projectType": "library",
+      "prefix": "alife",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/file-to-base64/tsconfig.lib.json",
+            "project": "projects/file-to-base64/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/file-to-base64/src/test.ts",
+            "tsConfig": "projects/file-to-base64/tsconfig.spec.json",
+            "karmaConfig": "projects/file-to-base64/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/file-to-base64/tsconfig.lib.json",
+              "projects/file-to-base64/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "file-to-base64-app"

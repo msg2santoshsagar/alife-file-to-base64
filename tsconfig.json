@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "file-to-base64": [
+        "dist/file-to-base64"
+      ],
+      "file-to-base64/*": [
+        "dist/file-to-base64/*"
+      ]
+    }
   }
 }

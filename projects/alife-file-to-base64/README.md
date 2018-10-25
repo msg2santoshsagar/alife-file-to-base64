@@ -4,14 +4,14 @@ Angular 4 simple yet powerfull library to convert file to base64
 
 ## Install file to base64 from NPM :
 
-Run `npm install file-to-base64 --save`
+Run `npm install alife-file-to-base --save`
 
 ## Add Dependecy to your project
 
 -  Import `FileToBase64Module` to your project and include module in imports section
 
 ```javascript
-import { FileToBase64Module } from 'file-to-base64';
+import { FileToBase64Module } from 'alife-file-to-base';
 
 @NgModule({
   declarations: [

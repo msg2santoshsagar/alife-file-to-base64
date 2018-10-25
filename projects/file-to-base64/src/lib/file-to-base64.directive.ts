@@ -1,4 +1,4 @@
-import { Directive, OnInit, ElementRef, Input } from '@angular/core';
+import { Directive, OnInit, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 
 @Directive({
   selector: '[alife-file-to-base64]'
@@ -6,10 +6,12 @@ import { Directive, OnInit, ElementRef, Input } from '@angular/core';
 export class FileToBase64Directive implements OnInit {
 
   @Input() type: string;
-  @Input() multiple: string;
+  //@Input() multiple: string;
+
+  @Output() onFileChanged: EventEmitter<any> = new EventEmitter<any>();
 
   isTypeFile: boolean = false;
-  isMultiple: boolean = false;
+  //isMultiple: boolean = false;
   userCapture: boolean = false;
 
   globalFilesData: any = [];
@@ -21,17 +23,18 @@ export class FileToBase64Directive implements OnInit {
   ngOnInit() {
 
     this.isTypeFile = this.type === 'file'
-    this.isMultiple = this.multiple !== undefined;
+    //this.isMultiple = this.multiple !== undefined;
 
     this.init();
 
   }
 
   init() {
-    console.log("init :: isTypeFile : ", this.isTypeFile);
-    console.log("init :: isMultiple : ", this.isMultiple);
+    //console.log("init :: isTypeFile : ", this.isTypeFile);
+    // console.log("init :: isMultiple : ", this.isMultiple);
     if (!this.isTypeFile) {
       console.error("alife-file-to-base64 will work only when input type is file.");
+      this.removeFileChangeAction();
       return;
     }
     // // Check for the various File API support.
@@ -46,11 +49,17 @@ export class FileToBase64Directive implements OnInit {
   }
 
   onFileReadingCompleted() {
-    console.log("File reading completed ");
-    console.log("Files :: ", this.globalFilesData);
+    //console.log("File reading completed ");
+    //console.log("Files :: ", this.globalFilesData);
+    this.onFileChanged.next(this.globalFilesData);
   }
 
   handleFileSelection(event) {
+
+    if (!this.isTypeFile) {
+      return;
+    }
+
     //console.log("handleFileSelection :: file selected");
     let files = event.target.files;
     //console.log("Files :: ", files, files.length);

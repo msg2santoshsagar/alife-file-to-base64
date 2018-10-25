@@ -2,8 +2,8 @@
 
   <h1>File To base64 </h1>
 
-  <button (click)="testFileDataValue()">TEST File data value</button><br /><br />
-  <input type="file" alife-file-to-base64 multiple />
+  <button (click)="changeType()">Change type</button><br /><br />
+  <input type="file" alife-file-to-base64 multiple (onFileChanged)="onFileChanges($event)" id="ft" />
 
 
 

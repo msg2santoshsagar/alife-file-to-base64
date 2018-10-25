@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'file-to-base64-app';
+
+  type = "file";
+
+  
+  onFileChanges(files) {
+    console.log("File changed :: ", files);
+  }
+
+
+
+
+
+
+
 }

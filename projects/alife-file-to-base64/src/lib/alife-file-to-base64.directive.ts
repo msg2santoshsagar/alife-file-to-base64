@@ -7,14 +7,17 @@ export class AlifeFileToBase64Directive {
 
   @Input() type: string;
   @Input() fileModel: any;
+  @Input() rawFileModel: any;
 
   @Output() onFileChanged: EventEmitter<any> = new EventEmitter<any>();
   @Output() fileModelChange: EventEmitter<any> = new EventEmitter();
+  @Output() rawFileModelChange: EventEmitter<any> = new EventEmitter();
 
   isTypeFile: boolean = false;
   userCapture: boolean = false;
 
   globalFilesData: any = [];
+  globalRawFilesData: any = [];
 
   constructor(private elementRef: ElementRef) { }
 
@@ -45,8 +48,9 @@ export class AlifeFileToBase64Directive {
    * Fire the events
    */
   onFileReadingCompleted() {
-    this.onFileChanged.next(this.globalFilesData);
     this.fileModelChange.next(this.globalFilesData);
+    this.rawFileModelChange.next(this.globalRawFilesData);
+    this.onFileChanged.next(this.globalFilesData);
   }
 
   /**
@@ -62,6 +66,7 @@ export class AlifeFileToBase64Directive {
     }
 
     let files = event.target.files;
+    this.globalRawFilesData = files;
 
     let fileOutput = [];
 

@@ -26,13 +26,14 @@ import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 
 ## Syntax
 ```html
-<input type="file" alife-file-to-base64 (onFileChanged)="onFileChanges($event)" [(fileModel)]="files" />
+<input type="file" alife-file-to-base64 multiple (onFileChanged)="onFileChanges($event)" [(fileModel)]="files" [(rawFileModel)]="rawFiles" />
 ```
 
 ## Events
 
- - onFileChanged : Will get called when file will get selected by user. It will contain filename, filesize,type and base64.
+ - onFileChanged : Will get called when file will get selected by user. It will contain filename, filesize, type and base64.
  - fileModel     : To set the value of component variable
+ - rawFileModel  : To set the value of component variable for raw files
 
 ## Author
 

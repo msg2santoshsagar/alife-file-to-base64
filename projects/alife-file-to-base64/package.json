@@ -1,6 +1,6 @@
 {
   "name": "alife-file-to-base64",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Angular simple yet powerfull library to convert file to base64",
   "homepage": "https://github.com/msg2santoshsagar/alife-file-to-base64#readme",
   "license": "MIT",
